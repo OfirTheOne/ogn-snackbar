@@ -1,0 +1,22 @@
+<div id="__snackbar-content" [ngClass]="setSnackbarContentClasses()">
+
+    <div class="text-container">
+        <div class="text">{{textContent}}</div>
+    </div>
+
+    <button (click)="onActionClick($event)"
+        class="action" 
+        *ngIf="isConteinSidePart && !!action">
+        {{action.name}}
+    </button>
+        
+    <div class="mat-icon-container"
+        *ngIf="isConteinSidePart && !!matIcon">
+        <div class="icon-inner-container">
+            <i [ngClass]="setMatIconClasses(matIcon)">{{matIcon.iconName}}</i>
+        </div>
+        
+    </div>
+       
+</div>
+  

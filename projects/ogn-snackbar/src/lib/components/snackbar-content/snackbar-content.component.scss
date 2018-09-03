@@ -1,0 +1,70 @@
+@import './snackbar-style/variables.scss';
+@import './snackbar-style/fonts.scss';
+
+
+/*********** base class styling / constant style ***********/
+#__snackbar-content.base {
+    /* basic */
+    
+    position: fixed;
+    text-align: start;
+    z-index: 1;
+
+    /* set size an centered */
+    width: 90%;
+	left: 50%;
+    margin-left: -45%;
+    min-height: $snackbar-min-height;
+    max-height: $snackbar-max-height;
+    // line-height: $snackbar-heigth;
+    
+    /* set the sub div to be side by side and stay responsive */
+    display: grid;
+    grid-template-columns: auto;
+    
+    /* other styles */
+    font-family: $snackbar-font-family;
+    background-color: $snackbar-bg-color;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 2px;
+
+   
+}
+
+#__snackbar-content.with-side-part {
+    grid-template-columns: 80% 20% !important;
+}
+
+/***********  text  ***********/
+#__snackbar-content > div.text-container {
+  min-width: 80%;
+  height: 36px;
+  display: table;
+}
+
+#__snackbar-content > div.text-container > div.text {
+    padding: 16px;
+    display: table-cell;
+    vertical-align: middle;
+    line-height: 18px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+
+
+
+/*********** mat icons ***********/
+@import './snackbar-style/mat-icons.scss';
+
+
+/*********** action on click ripple effect ***********/
+@import './snackbar-style/button-action.scss';
+
+
+/*********** appearance effects ***********/
+@import './snackbar-style/appearance-effects.scss';
+
+
+  

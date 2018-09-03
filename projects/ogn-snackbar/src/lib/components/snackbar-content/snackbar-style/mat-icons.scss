@@ -1,0 +1,19 @@
+
+
+.material-icons.fail-color { color: $fail--icon-color; }
+.material-icons.done-color { color: $done--icon-color; }
+.material-icons.alert-color { color: $alert--icon-color; }
+
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+
+.mat-icon-container { 
+    display: table;
+    text-align: center;
+    min-width: 20%;
+    height: 100%;
+    > div.icon-inner-container {
+        display: table-cell;
+        vertical-align: middle;
+    }
+}

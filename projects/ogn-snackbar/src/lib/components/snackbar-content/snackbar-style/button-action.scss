@@ -1,0 +1,60 @@
+
+
+/*********** action on click ripple effects ***********/
+
+
+#__snackbar-content > button.action:focus {
+    outline: none;
+} 
+#__snackbar-content > button.action:active {
+    outline: none;
+}
+
+
+
+#__snackbar-content > button.action {
+    outline: none;
+    position: relative;
+    overflow: hidden;
+
+    vertical-align: middle;
+    line-height: normal;
+
+    color: white;
+    border: none;
+    background: none;
+    text-align: center;
+    padding-right: 8px;
+    padding-left: 8px;
+}
+
+#__snackbar-content > button.action:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.6px;
+    height: 1.6px;
+    background: rgba(255, 255, 255, .5);
+    opacity: 0;
+    border-radius: 100%;
+    transform: scale(1, 1) translate(-50%);
+    transform-origin: 50% 50%;
+}
+@keyframes ripple {
+    0% {
+      transform: scale(0, 0);
+      opacity: 1;
+    }
+    20% {
+      transform: scale(25, 25);
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+      transform: scale(45, 45);
+    }
+}
+#__snackbar-content > button.action:focus:not(:active)::after {
+    animation: ripple 1s ease-out;
+}
