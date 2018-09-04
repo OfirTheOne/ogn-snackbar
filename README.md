@@ -36,12 +36,46 @@ in app.component.html (at the top) do :
 ## Usage
 
 To use the snackbar service, in your application components, import and inject the service like any other service.<br>
+
     import { OgnSnackbarService } from 'ogn-snackbar';
     ...
     constructor(private snackbarService: OgnSnackbarService) { }
     
 to show the snackbar call the method 
 `this.snackbarService.showSnackbar(text: string, options?: SnackbarOptionsArgs)`
+
+### Example
+
+    import { Component, OnInit } from '@angular/core';
+
+    import { 
+      OgnSnackbarService, 
+      SanckbarPosition,
+      SnackbarAppearanceEffects 
+    } from 'ogn-snackbar';
+
+    @Component({
+        selector: 'app-view-snackbar',
+        templateUrl: './view-snackbar.component.html',
+        styleUrls: ['./view-snackbar.component.scss']
+    })
+    export class ViewSnackbarComponent implements OnInit {
+
+        constructor(private snackbarService: OgnSnackbarService) { }
+
+        ngOnInit() { }
+         
+        /** here we calling the snackbar to be position on top, with 'Ok' as an action next to the text, 
+         *  (with handle param as a callback), for 4 sec and entering/exiting with slide effect.
+         */ 
+        showSnackbar() {
+            this.snackbarService.showSnackbar('Hello for snackbar view !', {
+                position: SanckbarPosition.TOP,
+                appearanceEffect: SnackbarAppearanceEffects.SLIDE,
+                timeout: 4000,
+                action: { name: 'Ok', handler: (name, data) => console.log(name, data) },
+            });
+        }
 
 
 ## Doc
