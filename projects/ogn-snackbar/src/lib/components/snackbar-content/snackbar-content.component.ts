@@ -53,7 +53,6 @@ export class SnackbarContentComponent implements OnInit {
 
             'with-side-part': this.isConteinSidePart
         };
-        console.log(contentClasses);
         return contentClasses;
     }
 

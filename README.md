@@ -1,4 +1,7 @@
-# Ogn Snackbar - Angular Ui Snackbar-Component Service   
+
+# Angular6 Ui Snackbar-Component Service   
+
+**At this point compatible with Angular v6**
 
 
 ## Features
@@ -33,14 +36,19 @@ in app.component.html (at the top) do :
 ## Usage
 
 To use the snackbar service, in your application components, import and inject the service like any other service.<br>
-to show the snackbar call the method `showSnackbar(text: string, options?: SnackbarOptionsArgs)`
+    import { OgnSnackbarService } from 'ogn-snackbar';
+    ...
+    constructor(private snackbarService: OgnSnackbarService) { }
+    
+to show the snackbar call the method 
+`this.snackbarService.showSnackbar(text: string, options?: SnackbarOptionsArgs)`
 
 
 ## Doc
 
 ### Behavior 
-Only one snackbar can be appear only one at a time. 
-Whan called a snackbar for appearing while one beeing shown, it will immediately dismissed and the recently called snackbar will appear.
+A snackbar can appear only one at a time. 
+Whan called a snackbar for appearing while one is beeing shown, it will immediately dismissed and the recently called snackbar will appear.
 
 TODO: add SnackbarOptionsArgs doc.
 
