@@ -89,4 +89,4 @@ TODO: add SnackbarOptionsArgs doc.
 
 
 ### Notes 
-* if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call if after the view is initialized (not from the constructor or ngOnit, for example).
+* if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the constructor or ngOnit, for example).
