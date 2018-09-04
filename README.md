@@ -87,3 +87,6 @@ Whan called a snackbar for appearing while one is beeing shown, it will immediat
 
 TODO: add SnackbarOptionsArgs doc.
 
+
+### Notes 
+* if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call if after the view is initialized (not from the constructor of ngOnit, for example).
