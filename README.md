@@ -15,7 +15,7 @@ The two main features are :
 **step 1 -** <br>
 In your app.module add :
 
-    import { OgnSnackbarModule } from 'snackbar';
+    import { OgnSnackbarModule } from 'ogn-snackbar';
 
     @NgModule({
       declarations: [ ... ],
