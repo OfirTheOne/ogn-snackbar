@@ -1,5 +1,5 @@
 
-# Angular6 Ui Snackbar-Component Service   
+# Angular 6 Ui Snackbar-Component Service   
 
 **At this point compatible with Angular v6**
 
@@ -65,8 +65,9 @@ to show the snackbar call the method
 
         ngOnInit() { }
          
-        /** here we calling the snackbar to be position on top, with 'Ok' as an action next to the text, 
-         *  (with handle param as a callback), for 4 sec and entering/exiting with slide effect.
+        /** here we calling the snackbar to be position on top, with 'Ok' as 
+         *  an action next to the text (with handle param as a callback),
+         *  for 4 sec and entering/exiting with slide effect.
          */ 
         showSnackbar() {
             this.snackbarService.showSnackbar('Hello for snackbar view !', {
