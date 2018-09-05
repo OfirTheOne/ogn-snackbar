@@ -91,8 +91,9 @@ TODO: add SnackbarOptionsArgs doc.
 
 ### Core Objects
 
-<br>
+
 <b>*SnackbarOptionsArgs*</b> 
+
 * object scheme :  
 
       SnackbarOptionsArgs {
@@ -123,8 +124,9 @@ TODO: add SnackbarOptionsArgs doc.
 
 * used only as a parameter for showSnackbar method
 
-<br>
+
 <b>*SnackbarAction*</b> 
+
 * object scheme :  
 
       SnackbarAction {
