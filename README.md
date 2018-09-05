@@ -87,6 +87,40 @@ Whan called a snackbar for appearing while one is beeing shown, it will immediat
 
 TODO: add SnackbarOptionsArgs doc.
 
+### Core Objects
+
+<b>*SnackbarOptionsArgs*</b> 
+    
+    SnackbarOptionsArgs {
+        matIcon?: SnackbarMatIcon;
+         
+        /** a clickable text at the right side of the bar, if a callback
+         *  is not needed than a simple string would suffice, else
+         *  use a SnackbarAction
+         */
+        action?: string | SnackbarAction;
+         
+        /** the effect/animation of which the bar will appeare.
+         *  can be fade, slide, fade-slide and pop 
+         *  [pop option will be supported in the near future !]
+         */
+        appearanceEffect?: SnackbarAppearanceEffects;
+        
+        borderGap?: number; // [will be supported in the near future !]
+        
+        /** the postion/location of the bar, top or bottom.
+         */
+        position: SanckbarPosition; 
+        
+        /** the amount in milisec the bar will be shown.
+         */
+        timeout: number; 
+    }
+
+used only as a parameter for showSnackbar method
+
+
+<b>*SnackbarAction*</b> 
 
 ### Notes 
 * if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the constructor or ngOnit, for example).
