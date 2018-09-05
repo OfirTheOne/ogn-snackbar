@@ -92,8 +92,9 @@ TODO: add SnackbarOptionsArgs doc.
 ### Core Objects
 
 <b>*SnackbarOptionsArgs*</b> 
-* object scheme :   
-    SnackbarOptionsArgs {
+* object scheme :  
+
+      SnackbarOptionsArgs {
         matIcon?: SnackbarMatIcon;
          
         /** a clickable text at the right side of the bar, if a callback
@@ -117,13 +118,32 @@ TODO: add SnackbarOptionsArgs doc.
         /** the amount in milisec the bar will be shown.
          */
         timeout: number; 
-    }
+      }
 
 * used only as a parameter for showSnackbar method
 
 
 <b>*SnackbarAction*</b> 
+* object scheme :  
 
+      SnackbarAction {
+          /** the action name, the text that will be placed at the right 
+           *  side of the bar.
+           */
+          name: string;
+          
+          /** the callback that will be called whan the action been clicked,
+           *  it received the name of the action, and the event object.
+           */          
+          handler: (action: string, $event: Event) => void;
+                 
+          textColor?: string;  // [will be supported in the near future !]
+      }
+* used only as a property in SnackbarOptionsArgs object.
+* action have priority over icon - if Both action and an icon are defined 
+  on SnackbarOptionsArgs object the icon will be ignored.
+      
+      
 ### Notes 
 * if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the constructor or ngOnit, for example).
 
