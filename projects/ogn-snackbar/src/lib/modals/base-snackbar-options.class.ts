@@ -24,14 +24,14 @@ export class BaseSnackbarOptions implements SnackbarOptionsArgs {
                     name: action,
                     handler: undefined,
                     textColor: 'white',
-                    desmissOnlyOnClick: false,
+                    // desmissOnlyOnClick: false,
                 };
             } else {
                 this.action = {
                     name: action.name,
                     handler: action.handler,
                     textColor: action.textColor || 'white',
-                    desmissOnlyOnClick: action.desmissOnlyOnClick || false,
+                    // desmissOnlyOnClick: action.desmissOnlyOnClick || false,
                 };
             }
 
