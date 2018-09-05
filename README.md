@@ -81,16 +81,18 @@ in app.component.html (at the top) do :
 
 ## Doc
 
+
 ### Behavior 
 A snackbar can appear only one at a time. 
 Whan called a snackbar for appearing while one is beeing shown, it will immediately dismissed and the recently called snackbar will appear.
 
 TODO: add SnackbarOptionsArgs doc.
 
+
 ### Core Objects
 
 <b>*SnackbarOptionsArgs*</b> 
-    
+* object scheme :   
     SnackbarOptionsArgs {
         matIcon?: SnackbarMatIcon;
          
@@ -117,7 +119,7 @@ TODO: add SnackbarOptionsArgs doc.
         timeout: number; 
     }
 
-used only as a parameter for showSnackbar method
+* used only as a parameter for showSnackbar method
 
 
 <b>*SnackbarAction*</b> 
