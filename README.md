@@ -34,9 +34,9 @@ to show the snackbar call the method<br>
     } from 'ogn-snackbar';
 
     @Component({
-        selector: 'app-view-snackbar',
-        templateUrl: './view-snackbar.component.html',
-        styleUrls: ['./view-snackbar.component.scss']
+      selector: 'app-view-snackbar',
+      templateUrl: './view-snackbar.component.html',
+      styleUrls: ['./view-snackbar.component.scss']
     })
     export class ViewSnackbarComponent implements OnInit {
 
@@ -49,15 +49,15 @@ to show the snackbar call the method<br>
          *  for 4 sec and entering/exiting with slide effect.
          */ 
         showSnackbar() {
-            this.snackbarService.showSnackbar('Hello from snackbar view !', {
-                position: SanckbarPosition.TOP,
-                appearanceEffect: SnackbarAppearanceEffects.SLIDE,
-                timeout: 4000,
-                action: { 
-                    name: 'Ok', 
-                    handler: (name, data) => console.log(name, data) 
-                },
-            });
+          this.snackbarService.showSnackbar('Hello from snackbar view !', {
+            position: SanckbarPosition.TOP,
+            appearanceEffect: SnackbarAppearanceEffects.SLIDE,
+            timeout: 4000,
+            action: { 
+              name: 'Ok', 
+              handler: (name, data) => console.log(name, data) 
+            },
+          });
         }
      }
 
@@ -138,17 +138,17 @@ TODO: add SnackbarOptionsArgs doc.
 * object scheme :  
 
       SnackbarAction {
-          /** the action name, the text that will be placed at the right 
-           *  side of the bar.
-           */
-          name: string;
+        /** the action name, the text that will be placed at the right 
+         *  side of the bar.
+         */
+        name: string;
           
-          /** the callback that will be called whan the action been clicked,
-           *  it received the name of the action, and the event object.
-           */          
-          handler: (action: string, $event: Event) => void;
+        /** the callback that will be called whan the action been clicked,
+         *  it received the name of the action, and the event object.
+         */          
+        handler: (action: string, $event: Event) => void;
                  
-          textColor?: string;  // [will be supported in the near future !]
+        textColor?: string;  // [will be supported in the near future !]
       }
 * used only as a property in SnackbarOptionsArgs object.
 * action have priority over icon - if Both action and an icon are defined 
