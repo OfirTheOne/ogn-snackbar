@@ -20,7 +20,8 @@ To use the snackbar service, in your application components, import and inject t
     constructor(private snackbarService: OgnSnackbarService) { }
     
 to show the snackbar call the method<br> 
-`this.snackbarService.showSnackbar(text: string, options?: SnackbarOptionsArgs)`
+
+    this.snackbarService.showSnackbar(text: string, options?: SnackbarOptionsArgs)
 
 ### Example
 
@@ -48,13 +49,17 @@ to show the snackbar call the method<br>
          *  for 4 sec and entering/exiting with slide effect.
          */ 
         showSnackbar() {
-            this.snackbarService.showSnackbar('Hello for snackbar view !', {
+            this.snackbarService.showSnackbar('Hello from snackbar view !', {
                 position: SanckbarPosition.TOP,
                 appearanceEffect: SnackbarAppearanceEffects.SLIDE,
                 timeout: 4000,
-                action: { name: 'Ok', handler: (name, data) => console.log(name, data) },
+                action: { 
+                    name: 'Ok', 
+                    handler: (name, data) => console.log(name, data) 
+                },
             });
         }
+     }
 
 
 ## Setup 
@@ -167,7 +172,7 @@ TODO: add SnackbarOptionsArgs doc.
          *      content: "warning"; 
          *      color: #FDD835; 
          *    }
-         *  and the 'displayClasses' will look like ['material-icons', 'alert-icon'].
+         *  and the 'displayClasses' will be ['material-icons', 'alert-icon'].
          */
         displayClasses: string[];
         
