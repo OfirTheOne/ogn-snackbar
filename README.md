@@ -160,7 +160,7 @@ TODO: add SnackbarOptionsArgs doc.
          */
         iconName: string;
         
-        /** array of the css classes that will display the icon
+        /** array of the css classes responsible for displaying the icon.
          *  e.g : 
          *  using Matirial Icons we difine this class on the global style file,
          *    material-icons.alert-icon:before { 
