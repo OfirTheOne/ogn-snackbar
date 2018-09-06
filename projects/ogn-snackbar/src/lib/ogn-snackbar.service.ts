@@ -15,7 +15,6 @@ import {
 
 import { SnackbarContentComponent } from './components/snackbar-content/snackbar-content.component';
 
-const DELAY_CLEAR_MS = 700;
 @Injectable({ providedIn: 'root' })
 export class OgnSnackbarService {
 
@@ -33,7 +32,11 @@ export class OgnSnackbarService {
     }
 
     public showSnackbar(text: string, options: SnackbarOptionsArgs = defaultSnackbarOptions) {
-        this.contentViewContainer.clear();
+        try {
+            this.contentViewContainer.clear();
+        } catch (error) {
+            console.log(error);
+        }
 
         const standardizedOptions = new BaseSnackbarOptions(options) as SnackbarOptionsArgs;
         const snackbarComponentRef = this.createComponentRef<SnackbarContentComponent>(
@@ -52,9 +55,6 @@ export class OgnSnackbarService {
             // delay the hide by the timeout value
             setTimeout(() => {
                 this.setSnackbarHidden(snackbarComponentRef);
-                setTimeout(() => {
-                    this.contentViewContainer.clear();
-                }, DELAY_CLEAR_MS);
             }, standardizedOptions.timeout);
         }
     }
@@ -98,8 +98,7 @@ export class OgnSnackbarService {
     private setSidePart(snackbar: ComponentRef<SnackbarContentComponent>, options: SnackbarOptionsArgs) {
         snackbar.instance.isConteinSidePart
             = !!options.action
-            // || !!options.graphicState
-            || !!options.matIcon;
+            || !!options.icon;
 
         if (!!options.action) {
             if (typeof options.action === 'string') {
@@ -111,11 +110,8 @@ export class OgnSnackbarService {
                 snackbar.instance.action = options.action;
             }
 
-        // } else if (!!options.graphicState) {
-        //     snackbar.instance.graphicStateRole = options.graphicState;
-
-        } else if (!!options.matIcon) {
-            snackbar.instance.matIcon = options.matIcon;
+        } else if (!!options.icon) {
+            snackbar.instance.icon = options.icon;
 
         }
     }
@@ -130,8 +126,5 @@ export class OgnSnackbarService {
 const defaultSnackbarOptions: SnackbarOptionsArgs = {
     position: SanckbarPosition.BOTTOM,
     timeout: 3000,
-    // action: { name: 'Ok', handler: (name, data) => console.log(name, data) },
-    // graphicState: SnackbarGraphicState.Success
-    // matIcon: MatIconClassics.done
 };
 

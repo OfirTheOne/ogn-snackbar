@@ -1,5 +1,5 @@
 
-import { SnackbarMatIcon } from './snackbar-mat-icon.modal';
+import { SnackbarIcon } from './snackbar-icon.modal';
 import { SnackbarAction } from './snackbar-action.modal';
 import { SnackbarAppearanceEffects } from './snackbar-appearance-effects.enum';
 import { SanckbarPosition } from './snackbar-position.enum';
@@ -13,7 +13,8 @@ import { SanckbarPosition } from './snackbar-position.enum';
 // }
 
 export interface SnackbarOptionsArgs {
-    matIcon?: SnackbarMatIcon;
+    icon?: SnackbarIcon;
+    // matIcon?: SnackbarMatIcon;
     action?: string | SnackbarAction;
 
     appearanceEffect?: SnackbarAppearanceEffects; // the effect of which the bar will appeare.

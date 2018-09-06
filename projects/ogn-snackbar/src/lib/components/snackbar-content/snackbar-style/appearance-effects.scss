@@ -3,12 +3,14 @@
 // *************** slide-fade *************** //
 // bottom 
 .base.pos-bottom.slide-fade {
+    z-index: 1; 
     animation:0.5s pos-bottom--slide-fade-out ease 1; 
     opacity:0;
     display:none;
     bottom: $bottom-dist;
 }
 .base.pos-bottom.show.slide-fade {
+    z-index: 1; 
     animation:0.5s pos-bottom--slide-fade-in ease 1;
     opacity:1;
     display:block;
@@ -31,12 +33,14 @@
 
 // top
 .base.pos-top.slide-fade {
+    z-index: 1; 
     animation:0.5s pos-top--slide-fade--out ease 1; 
     opacity:0;
     display:none;
     top: $top-dist;
 }
 .base.pos-top.show.slide-fade {
+    z-index: 1; 
     animation:0.5s pos-top--slide-fade--in ease 1;
     opacity:1;
     display:block;
@@ -62,58 +66,62 @@
 // *************** fade *************** //
 // bottom
 .base.pos-bottom.fade {
+    z-index: -1;
     animation:0.5s pos-bottom--fade--out ease 1; 
     opacity:0;
     display:none;
     bottom: $bottom-dist;
 }
 .base.pos-bottom.show.fade {
+    z-index: 1;
     animation:0.5s pos-bottom--fade--in ease 1;
     opacity:1;
     display:block;
 }
 
 @keyframes pos-bottom--fade--in{
-    0%   { bottom: $bottom-dist; display: none; opacity: 0; }
-    25%  { bottom: $bottom-dist; display: none; opacity: 0.25; }
-    50%  { bottom: $bottom-dist; opacity: 0.5; }
-    75%  { bottom: $bottom-dist; opacity: 0.75; }
-    100% { bottom: $bottom-dist; display: block; opacity: 1; }
+    0%   { bottom: $bottom-dist; display: none; opacity: 0; z-index: 1; }
+    25%  { bottom: $bottom-dist; display: none; opacity: 0.25; z-index: 1; }
+    50%  { bottom: $bottom-dist; opacity: 0.5; z-index: 1; }
+    75%  { bottom: $bottom-dist; opacity: 0.75; z-index: 1; }
+    100% { bottom: $bottom-dist; display: block; opacity: 1; z-index: 1; }
 } 
 @keyframes pos-bottom--fade--out{
-    0%   { bottom: $bottom-dist; display: block; opacity: 1; }
-    25%  { bottom: $bottom-dist; display: block; opacity: 0.75; }
-    50%  { bottom: $bottom-dist; opacity: 0.5; }
-    75%  { bottom: $bottom-dist; opacity: 0.25; }
-    100% { bottom: $bottom-dist; display: none; opacity: 0; }
+    0%   { bottom: $bottom-dist; display: block; opacity: 1; z-index: 1; }
+    25%  { bottom: $bottom-dist; display: block; opacity: 0.75; z-index: 1; }
+    50%  { bottom: $bottom-dist; opacity: 0.5; z-index: 1; }
+    75%  { bottom: $bottom-dist; opacity: 0.25; z-index: 1; }
+    100% { bottom: $bottom-dist; display: none; opacity: 0; z-index: -1; }
 }
 
 // top
 .base.pos-top.fade {
+    z-index: -1; 
     animation:0.5s pos-top--fade--out ease 1; 
     opacity:0;
     display:none;
     top: $top-dist;
 }
 .base.pos-top.show.fade{
+    z-index: 1;
     animation:0.5s pos-top--fade--in ease 1;
     opacity:1;
     display:block;
 }
 
 @keyframes pos-top--fade--in{
-    0%   { top: $top-dist; display: none; opacity: 0; }
-    25%  { top: $top-dist; display: none; opacity: 0.25; }
-    50%  { top: $top-dist; opacity: 0.5; }
-    75%  { top: $top-dist; opacity: 0.75; }
-    100% { top: $top-dist; display: block; opacity: 1; }
+    0%   { top: $top-dist; display: none; opacity: 0; z-index: 1; }
+    25%  { top: $top-dist; display: none; opacity: 0.25; z-index: 1; }
+    50%  { top: $top-dist; opacity: 0.5; z-index: 1; }
+    75%  { top: $top-dist; opacity: 0.75; z-index: 1; }
+    100% { top: $top-dist; display: block; opacity: 1; z-index: 1; }
 } 
 @keyframes pos-top--fade--out{
-    0%   { top: $top-dist; display: block; opacity: 1; }
-    25%  { top: $top-dist; display: block; opacity: 0.75; }
-    50%  { top: $top-dist; opacity: 0.5; }
-    75%  { top: $top-dist; opacity: 0.25; }
-    100% { top: $top-dist; display: none;  opacity: 0; }
+    0%   { top: $top-dist; display: block; opacity: 1; z-index: 1; }
+    25%  { top: $top-dist; display: block; opacity: 0.75; z-index: 1; }
+    50%  { top: $top-dist; opacity: 0.5;  z-index: 1; }
+    75%  { top: $top-dist; opacity: 0.25; z-index: 1; }
+    100% { top: $top-dist; display: none;  opacity: 0; z-index: -1; }
 }
 
 
@@ -121,11 +129,13 @@
 // *************** slide *************** //
 // bottom
 .base.pos-bottom.slide {
+    z-index: 1; 
     animation:0.5s pos-bottom--slide--out ease 1; 
     display:none;
     bottom: -100px;
 }
 .base.pos-bottom.show.slide {
+    z-index: 1; 
     animation:0.5s pos-bottom--slide--in ease 1;
     opacity: 1;
     display: block;
@@ -145,11 +155,13 @@
 
 // top
 .base.pos-top.slide {
+    z-index: 1; 
     animation:0.5s pos-top--slide--out ease 1; 
     display:none;
     top: -100px;
 }
 .base.pos-top.show.slide {
+    z-index: 1;
     animation:0.5s pos-top--slide--in ease 1;
     opacity:1;
     display:block;

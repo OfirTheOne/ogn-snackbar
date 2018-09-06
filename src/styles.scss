@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+// snackbar icons 
+$done--icon-color: #61d800;
+$fail--icon-color: #E53935;
+$alert--icon-color: #FDD835;
+
+$done--icon-name: "check_circle";
+$fail--icon-name: "cancel";
+$alert--icon-name: "warning";
+
+.material-icons.alert-icon:before { content: $alert--icon-name; color: $alert--icon-color; }
+.material-icons.fail-icon:before { content: $fail--icon-name; color: $fail--icon-color; }
+.material-icons.done-icon:before { content: $done--icon-name; color: $done--icon-color; }
+
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+
+

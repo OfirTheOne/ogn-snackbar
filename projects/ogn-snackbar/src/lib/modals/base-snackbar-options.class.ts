@@ -1,12 +1,12 @@
 import { SanckbarPosition } from './snackbar-position.enum';
 import { SnackbarAction } from './snackbar-action.modal';
 import { SnackbarAppearanceEffects } from './snackbar-appearance-effects.enum';
-import { SnackbarMatIcon } from './snackbar-mat-icon.modal';
+import { SnackbarIcon } from './snackbar-icon.modal';
 import { SnackbarOptionsArgs } from './snackbar-options-args.modal';
 
 export class BaseSnackbarOptions implements SnackbarOptionsArgs {
 
-    matIcon?: SnackbarMatIcon;
+    icon?: SnackbarIcon;
     action?: SnackbarAction;
     appearanceEffect?: SnackbarAppearanceEffects;
     position: SanckbarPosition;
@@ -24,23 +24,22 @@ export class BaseSnackbarOptions implements SnackbarOptionsArgs {
                     name: action,
                     handler: undefined,
                     textColor: 'white',
-                    // desmissOnlyOnClick: false,
                 };
             } else {
                 this.action = {
                     name: action.name,
                     handler: action.handler,
                     textColor: action.textColor || 'white',
-                    // desmissOnlyOnClick: action.desmissOnlyOnClick || false,
                 };
             }
 
-        } else if (providedOptions.matIcon) {
-            const matIcon = providedOptions.matIcon;
-            this.matIcon = {
-                iconName: matIcon.iconName,
-                iconColor: matIcon.iconColor || 'white',
-                extraClasses: matIcon.extraClasses || undefined
+        } else if (providedOptions.icon) {
+            const icon = providedOptions.icon;
+            this.icon = {
+                iconName: icon.iconName,
+                displayClasses: icon.displayClasses || [],
+                extraClasses: icon.extraClasses || undefined,
+                iconColor: icon.iconColor || 'white',
             };
         }
 

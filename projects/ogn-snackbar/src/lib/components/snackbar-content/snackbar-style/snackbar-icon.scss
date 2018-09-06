@@ -1,0 +1,15 @@
+
+
+.icon-container { 
+    display: table;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    > div.icon-inner-container {
+        display: table-cell;
+        vertical-align: middle;
+        > i {
+            font-size: 36px !important;
+        }
+    }
+}

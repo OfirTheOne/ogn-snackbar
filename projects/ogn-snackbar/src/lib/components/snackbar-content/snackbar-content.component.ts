@@ -1,5 +1,9 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { SnackbarAction, SnackbarMatIcon, SnackbarAppearanceEffects } from '../../modals';
+import {
+    SnackbarAction,
+    SnackbarIcon,
+    SnackbarAppearanceEffects
+} from '../../modals';
 
 @Component({
     selector: 'ogn-snackbar-content',
@@ -20,8 +24,7 @@ export class SnackbarContentComponent implements OnInit {
     @Input() action: SnackbarAction;
     @Input() onClickActionEvent: EventEmitter<void>;
 
-    // @Input() graphicStateRole: SnackbarGraphicState;
-    @Input() matIcon: SnackbarMatIcon;
+    @Input() icon: SnackbarIcon;
 
 
     constructor() {
@@ -56,14 +59,22 @@ export class SnackbarContentComponent implements OnInit {
         return contentClasses;
     }
 
-    public setMatIconClasses(matIcon: SnackbarMatIcon) {
-        const iconClasses = {
-            ...matIcon.extraClasses,
-            'material-icons': true,
-            'md-36': true,
-        };
+    public setIconClasses(icon: SnackbarIcon) {
+        let iconClasses = {};
+
+        const margedClassesArray = [
+             ... icon.displayClasses,
+             ... (icon.extraClasses || [])
+        ];
+
+        if (icon.displayClasses.length > 0) {
+            iconClasses = margedClassesArray.reduce<{ [key: string]: boolean }>(
+                (classes: { [key: string]: boolean }, iconClass: string) => {
+                    classes[iconClass] = true;
+                    return classes;
+                }, {});
+        }
         return iconClasses;
     }
-
 
 }

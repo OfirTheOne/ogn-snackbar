@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { OgnSnackbarService } from 'ogn-snackbar';
-import { SanckbarPosition, MatIconClassics, SnackbarAppearanceEffects } from 'ogn-snackbar';
+import { SanckbarPosition, SnackbarAppearanceEffects } from 'ogn-snackbar';
 
 @Component({
     selector: 'app-view-snackbar',
@@ -27,7 +27,7 @@ export class ViewSnackbarComponent implements OnInit {
             position: SanckbarPosition.BOTTOM,
             appearanceEffect: SnackbarAppearanceEffects.SLIDE,
             timeout: 50000,
-            matIcon: MatIconClassics.alert
+            icon: IconClassics.alert
         });
     }
 
@@ -44,7 +44,7 @@ export class ViewSnackbarComponent implements OnInit {
             position: SanckbarPosition.BOTTOM,
             appearanceEffect: SnackbarAppearanceEffects.FADE,
             timeout: 50000,
-            matIcon: MatIconClassics.done
+            icon: IconClassics.done
         });
     }
 
@@ -63,8 +63,31 @@ export class ViewSnackbarComponent implements OnInit {
             position: SanckbarPosition.BOTTOM,
             appearanceEffect: SnackbarAppearanceEffects.SLIDE_FADE,
             timeout: 50000,
-            matIcon: MatIconClassics.fail
+            icon: IconClassics.fail
         });
     }
 
 }
+
+
+const done = {
+    iconName: 'check_circle',
+    displayClasses: ['material-icons', 'done-icon'],
+
+};
+
+const fail = {
+    iconName: 'cancel',
+    displayClasses: ['material-icons', 'fail-icon'],
+};
+
+const alert = {
+    iconName: 'warning',
+    displayClasses: ['material-icons', 'alert-icon'],
+};
+
+const IconClassics = {
+    done,
+    fail,
+    alert
+};
