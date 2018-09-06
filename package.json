@@ -1,6 +1,6 @@
 {
   "name": "ogn-snackbar-app",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
