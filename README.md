@@ -7,8 +7,8 @@
 ## Features
 
 The two main features are :
-1. this is an independent ui service - no prerequisites & no dependencies.
-2. highly configurable ui component, with simple config options you can controll the position on the  bar, the animation effects, the action / icon that will be presented.
+1. This is an independent ui service - no prerequisites & no dependencies.
+2. Highly configurable ui component, with simple config options you can controll the position on the  bar, the animation effects, the action / icon that will be presented.
 
 
 ## Usage
@@ -19,7 +19,7 @@ To use the snackbar service, in your application components, import and inject t
     ...
     constructor(private snackbarService: OgnSnackbarService) { }
     
-to show the snackbar call the method<br> 
+To show the snackbar call the method<br> 
 
     this.snackbarService.showSnackbar(text: string, options?: SnackbarOptionsArgs)
 
@@ -79,7 +79,7 @@ In your app.module add :
     })
 
 **step 2 -** <br> 
-in app.component.html (at the top) do :
+In app.component.html (at the top) do :
 
     <ogn-snackbar-wrapper></ogn-snackbar-wrapper>
 
@@ -91,15 +91,13 @@ in app.component.html (at the top) do :
 A snackbar can appear only one at a time. 
 Whan called a snackbar for appearing while one is beeing shown, it will immediately dismissed and the recently called snackbar will appear.
 
-TODO: add SnackbarOptionsArgs doc.
-
 
 ### Core Objects
 
 
 #### <b>*SnackbarOptionsArgs*</b> 
 
-* object scheme :  
+* Object scheme :  
 
       SnackbarOptionsArgs {
         /** a none clickable icon, position at the right side of the bar, 
@@ -130,12 +128,12 @@ TODO: add SnackbarOptionsArgs doc.
         timeout: number; 
       }
 
-* used only as a parameter for showSnackbar method
+* Used only as a parameter for `showSnackbar` method
 
 
 #### <b>*SnackbarAction*</b> 
 
-* object scheme :  
+* Object scheme :  
 
       SnackbarAction {
         /** the action name, the text that will be placed at the right 
@@ -150,14 +148,14 @@ TODO: add SnackbarOptionsArgs doc.
                  
         textColor?: string;  // [will be supported in the near future !]
       }
-* used only as a property in SnackbarOptionsArgs object.
-* action have priority over icon - if Both action and an icon are defined 
-  on SnackbarOptionsArgs object the icon will be ignored.
+* Used only as a property in `SnackbarOptionsArgs` object.
+* Action have priority over icon - if Both action and an icon are defined 
+  on `SnackbarOptionsArgs` object the icon will be ignored.
  
  
  #### <b>*SnackbarIcon*</b> 
 
-* object scheme :  
+* Object scheme :  
 
       SnackbarIcon {
         /** accessibility purposes - use as the value of the 'aria-labelledby' 
@@ -186,13 +184,13 @@ TODO: add SnackbarOptionsArgs doc.
         
         iconColor?: string; // [will be supported in the near future !]
       }
-* used only as a property in SnackbarOptionsArgs object.
-* action have priority over icon - if Both action and an icon are defined 
-  on SnackbarOptionsArgs object the icon will be ignored.
+* Used only as a property in `SnackbarOptionsArgs` object.
+* Action have priority over icon - if Both action and an icon are defined 
+  on `SnackbarOptionsArgs` object the icon will be ignored.
  
       
 ### Notes 
-* if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the constructor or ngOnit, for example).
+* If you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the `constructor` or `ngOnInit`, for example).
 
 
 ### Background
