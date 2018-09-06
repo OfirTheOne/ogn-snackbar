@@ -97,7 +97,10 @@ TODO: add SnackbarOptionsArgs doc.
 * object scheme :  
 
       SnackbarOptionsArgs {
-        matIcon?: SnackbarMatIcon;
+        /** a none clickable icon, position at the right side of the bar, 
+         *  (same position as an action).
+         */
+        matIcon?: SnackbarIcon;
          
         /** a clickable text at the right side of the bar, if a callback
          *  is not needed than a simple string would suffice, else
@@ -145,7 +148,43 @@ TODO: add SnackbarOptionsArgs doc.
 * used only as a property in SnackbarOptionsArgs object.
 * action have priority over icon - if Both action and an icon are defined 
   on SnackbarOptionsArgs object the icon will be ignored.
-      
+ 
+ 
+ #### <b>*SnackbarIcon*</b> 
+
+* object scheme :  
+
+      SnackbarIcon {
+        /** accessibility purposes - use as the value of the 'aria-labelledby' 
+         *  attribute that wrap the icon element.
+         */
+        iconName: string;
+        
+        /** array of the css classes that will display the icon
+         *  e.g : 
+         *  using Matirial Icons we difine this class on the global style file,
+         *    material-icons.alert-icon:before { 
+         *      content: "warning"; 
+         *      color: #FDD835; 
+         *    }
+         *  and the 'displayClasses' will look like ['material-icons', 'alert-icon'].
+         */
+        displayClasses: string[];
+        
+        /** array of extra css classes that will be attach to the icon element.
+         *  the resone for this property is to seperte the classes that difine 
+         *  the content and color (the classes that responsabale for the icon 
+         *  being what it is) from the less major classes.
+         *  (you can ignore this property if you want)
+         */        
+        extraClasses?: string[];
+        
+        iconColor?: string; // [will be supported in the near future !]
+      }
+* used only as a property in SnackbarOptionsArgs object.
+* action have priority over icon - if Both action and an icon are defined 
+  on SnackbarOptionsArgs object the icon will be ignored.
+ 
       
 ### Notes 
 * if you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the constructor or ngOnit, for example).
