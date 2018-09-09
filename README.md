@@ -205,24 +205,24 @@ There are default options' values defained, thay will be used in a case `showSna
       }
 
 You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.
-* for example :
+for example : <br>
 
+    ...
+    import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
+
+    const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
+      action: 'Ok',
+      position: SanckbarPosition.TOP
+    };
+    
+    @NgModule({
+      declarations: [ ... ],
+      imports: [
+        BrowserModule,
+        OgnSnackbarModule.forRoot(myDefaultOptions)
+      ],
       ...
-      import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
-
-      const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
-        action: 'Ok',
-        position: SanckbarPosition.TOP
-      };
-
-      @NgModule({
-        declarations: [ ... ],
-        imports: [
-          BrowserModule,
-          OgnSnackbarModule.forRoot(myDefaultOptions)
-        ],
-        ...
-      })
+    })
     
 now the default options will marge to 
 
@@ -234,6 +234,7 @@ now the default options will marge to
         position: SanckbarPosition.TOP;
         timeout: 3000; 
       }
+      
 That mean that every time you will call `showSnackbar` method with no options, the bar will slide from the top for 3 sec, with 'Ok' action aside. <br>
 But be aware that with those default options in palce, any time you will not state action or an icon in the option object you provide `showSnackbar` method, the bar will default to the 'Ok' action stated in `myDefaultOptions` object.
 
