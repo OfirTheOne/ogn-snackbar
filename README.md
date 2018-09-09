@@ -207,22 +207,22 @@ There are default options' values defained, thay will be used in a case `showSna
 You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.
 * for example :
 
-    ...
-    import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
-
-    const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
-      action: 'Ok',
-      position: SanckbarPosition.TOP
-    };
-
-    @NgModule({
-      declarations: [ ... ],
-      imports: [
-        BrowserModule,
-        OgnSnackbarModule.forRoot(myDefaultOptions)
-      ],
       ...
-    })
+      import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
+
+      const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
+        action: 'Ok',
+        position: SanckbarPosition.TOP
+      };
+
+      @NgModule({
+        declarations: [ ... ],
+        imports: [
+          BrowserModule,
+          OgnSnackbarModule.forRoot(myDefaultOptions)
+        ],
+        ...
+      })
     
 now the default options will marge to 
 
