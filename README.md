@@ -84,7 +84,7 @@ In app.component.html (at the top) do :
     <ogn-snackbar-wrapper></ogn-snackbar-wrapper>
 
 
-## Doc
+## Documentation
 
 
 ### Behavior 
@@ -92,8 +92,8 @@ A snackbar can appear only one at a time.
 Whan called a snackbar for appearing while one is beeing shown, it will immediately dismissed and the recently called snackbar will appear.
 
 
-### Core Objects
 
+### Core Objects
 
 #### <b>*SnackbarOptionsArgs*</b> 
 
@@ -189,6 +189,7 @@ Whan called a snackbar for appearing while one is beeing shown, it will immediat
   on `SnackbarOptionsArgs` object the icon will be ignored.
  
       
+      
 ### Default Options Configuration
 There are default options' values defained, thay will be used in a case `showSnackbar` method will receive no options parameter.
 
@@ -204,7 +205,7 @@ There are default options' values defained, thay will be used in a case `showSna
       }
 
 You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.
-for example :
+* for example :
 
     ...
     import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
@@ -233,11 +234,14 @@ now the default options will marge to
         position: SanckbarPosition.TOP;
         timeout: 3000; 
       }
-That mean that every time you will call `showSnackbar` method with no options, the bar will slide from the top for 3 sec, with 'Ok' action aside.
+That mean that every time you will call `showSnackbar` method with no options, the bar will slide from the top for 3 sec, with 'Ok' action aside. <br>
 But be aware that with those default options in palce, any time you will not state action or an icon in the option object you provide `showSnackbar` method, the bar will default to the 'Ok' action stated in `myDefaultOptions` object.
+
+
 
 ### Notes 
 * If you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the `constructor` or `ngOnInit`, for example).
+
 
 
 ### Background
