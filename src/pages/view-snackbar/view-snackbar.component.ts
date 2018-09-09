@@ -14,6 +14,10 @@ export class ViewSnackbarComponent implements OnInit {
 
     ngOnInit() { }
 
+    showSnackbarDefaultOptions() {
+        this.snackbarService.showSnackbar('snackbar with default options.');
+    }
+
     showSnackbarTopActionSlide() {
         this.snackbarService.showSnackbar('top snackbar with action and slide effect.', {
             position: SanckbarPosition.TOP,

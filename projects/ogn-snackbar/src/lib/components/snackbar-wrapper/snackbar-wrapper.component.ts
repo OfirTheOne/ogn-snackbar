@@ -1,5 +1,10 @@
-import { Component, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
-import { OgnSnackbarService } from '../../ogn-snackbar.service';
+import {
+    Component,
+    OnInit,
+    ViewChild,
+    ViewContainerRef,
+    EventEmitter
+} from '@angular/core';
 
 @Component({
     selector: 'ogn-snackbar-wrapper',
@@ -8,13 +13,35 @@ import { OgnSnackbarService } from '../../ogn-snackbar.service';
 })
 export class SnackbarWrapperComponent implements OnInit {
 
+    private static snackbarViewInIt: EventEmitter<ViewContainerRef> = undefined;
+
     @ViewChild('snackbar_wrap', {
         read: ViewContainerRef
     }) viewContainerRef: ViewContainerRef;
 
-    constructor(private snackbarService: OgnSnackbarService) { }
+    /** @description
+     * This method will return 'snackbarViewInIt' object only the first time
+     * it will be called, any leter call will return undefined.
+     * The first time this method will be called it will also initialize the
+     * snackbarViewInIt.
+     */
+    public static getSackbarViewInIt(): EventEmitter<ViewContainerRef> | undefined {
+        if (!SnackbarWrapperComponent.snackbarViewInIt) {
+            SnackbarWrapperComponent.snackbarViewInIt = new EventEmitter();
+            return SnackbarWrapperComponent.snackbarViewInIt;
+        } else {
+            return undefined;
+        }
+    }
+
+
+    constructor() { }
 
     ngOnInit(): void {
-        this.snackbarService.setContentViewContainerRef(this.viewContainerRef);
+        if (SnackbarWrapperComponent.snackbarViewInIt) {
+            SnackbarWrapperComponent.snackbarViewInIt.emit(this.viewContainerRef);
+        }
     }
+
+
 }

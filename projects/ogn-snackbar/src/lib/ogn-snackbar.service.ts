@@ -1,44 +1,59 @@
-import { BaseSnackbarOptions } from './modals/base-snackbar-options.class';
-import {
-    SnackbarOptionsArgs,
-    SanckbarPosition,
-    SnackbarAppearanceEffects,
-} from './modals';
-
 import {
     Injectable,
     ViewContainerRef,
     ComponentFactoryResolver,
     ComponentRef,
-    Type
+    Type,
+    Optional
 } from '@angular/core';
 
-import { SnackbarContentComponent } from './components/snackbar-content/snackbar-content.component';
+import { BaseSnackbarOptions } from './modals/classes/base-snackbar-options.class';
 
-@Injectable({ providedIn: 'root' })
+import {
+    SnackbarOptionsArgs,
+    PartialSnackbarOptionsArgs,
+    SanckbarPosition,
+    SnackbarAppearanceEffects,
+} from './modals';
+
+import { SnackbarContentComponent } from './components/snackbar-content/snackbar-content.component';
+import { SnackbarWrapperComponent } from './components/snackbar-wrapper/snackbar-wrapper.component';
+
+import { defaultOptions } from './consts/default-options';
+
+
+
+@Injectable()
 export class OgnSnackbarService {
 
     private contentViewContainer: ViewContainerRef;
+    private defaultOptions: SnackbarOptionsArgs;
 
-    constructor(private factoryResolver: ComponentFactoryResolver) { }
+    constructor(private factoryResolver: ComponentFactoryResolver, @Optional() userDefault: PartialSnackbarOptionsArgs) {
+        this.defaultOptions = this.setDefault(defaultOptions, userDefault as SnackbarOptionsArgs);
+        console.log(this.defaultOptions);
+        SnackbarWrapperComponent.getSackbarViewInIt().subscribe((viewContainerRef) => {
+            this.setContentViewContainerRef(viewContainerRef);
+        });
+    }
 
     /** @description
-     * this method called from snackbar-wrapper component **only** to initialize
-     * 'contentViewContainer' member with the 'ng-template' element referance where
-     * snackbar-content component will be injected .
+     * this method called **once** whan snackbar-wrapper component emit 'snackbarViewInIt'
+     * event, than 'contentViewContainer' member beeing initialize with the 'ng-template'
+     * element referance where snackbar-content component will be injected .
      */
-    public setContentViewContainerRef(viewContainerRef) {
+    private setContentViewContainerRef(viewContainerRef) {
         this.contentViewContainer = viewContainerRef;
     }
 
-    public showSnackbar(text: string, options: SnackbarOptionsArgs = defaultSnackbarOptions) {
+    public showSnackbar(text: string, options?: SnackbarOptionsArgs) {
         try {
             this.contentViewContainer.clear();
         } catch (error) {
             console.log(error);
         }
-
-        const standardizedOptions = new BaseSnackbarOptions(options) as SnackbarOptionsArgs;
+        console.log(this.defaultOptions);
+        const standardizedOptions = new BaseSnackbarOptions(this.defaultOptions, options) as SnackbarOptionsArgs;
         const snackbarComponentRef = this.createComponentRef<SnackbarContentComponent>(
             this.factoryResolver, this.contentViewContainer, SnackbarContentComponent
         );
@@ -117,6 +132,20 @@ export class OgnSnackbarService {
     }
     //#endregion
 
+    private setDefault(appDefaultOptions: SnackbarOptionsArgs, userDefaultOptions: SnackbarOptionsArgs): SnackbarOptionsArgs {
+        if (!userDefaultOptions) {
+            return appDefaultOptions;
+        } else {
+            return {
+                icon: userDefaultOptions.icon || appDefaultOptions.icon,
+                action: userDefaultOptions.action || appDefaultOptions.action,
+                appearanceEffect: userDefaultOptions.appearanceEffect || appDefaultOptions.appearanceEffect,
+                // borderGap?: number;
+                position: userDefaultOptions.position || appDefaultOptions.position,
+                timeout: userDefaultOptions.timeout || appDefaultOptions.timeout,
+            };
+        }
+    }
 
 }
 

@@ -1,10 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { OgnSnackbarModule } from 'ogn-snackbar';
+import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
 
 import { AppComponent } from './app.component';
 import { ViewSnackbarComponent } from './../pages/view-snackbar/view-snackbar.component';
+
+
+const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
+  action: 'hello',
+  position: SanckbarPosition.TOP
+};
 
 @NgModule({
   declarations: [
@@ -13,7 +19,7 @@ import { ViewSnackbarComponent } from './../pages/view-snackbar/view-snackbar.co
   ],
   imports: [
     BrowserModule,
-    OgnSnackbarModule
+    OgnSnackbarModule.forRoot(myDefaultOptions)
   ],
   providers: [],
   bootstrap: [AppComponent]
