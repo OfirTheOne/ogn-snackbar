@@ -189,6 +189,53 @@ Whan called a snackbar for appearing while one is beeing shown, it will immediat
   on `SnackbarOptionsArgs` object the icon will be ignored.
  
       
+### Default Options Configuration
+There are default options' values defained, thay will be used in a case `showSnackbar` method will receive no options parameter.
+
+* Default Options :
+
+      {
+        matIcon: undefined;
+        action: undefined;
+        appearanceEffect: SnackbarAppearanceEffects.SLIDE;
+        // borderGap: undefined; // [will be supported in the near future !]
+        position: SanckbarPosition.BOTTOM;
+        timeout: 3000; 
+      }
+
+You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.
+for example :
+
+    ...
+    import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
+
+    const myDefaultOptions: Partial<SnackbarOptionsArgs> = {
+      action: 'Ok',
+      position: SanckbarPosition.TOP
+    };
+
+    @NgModule({
+      declarations: [ ... ],
+      imports: [
+        BrowserModule,
+        OgnSnackbarModule.forRoot(myDefaultOptions)
+      ],
+      ...
+    })
+    
+now the default options will marge to 
+
+      {
+        matIcon: undefined;
+        action: 'Ok';
+        appearanceEffect: SnackbarAppearanceEffects.SLIDE;
+        // borderGap: undefined; 
+        position: SanckbarPosition.TOP;
+        timeout: 3000; 
+      }
+That mean that every time you will call `showSnackbar` method with no options, the bar will slide from the top for 3 sec, with 'Ok' action aside.
+But be aware that with those default options in palce, any time you will not state action or an icon in the option object you provide `showSnackbar` method, the bar will default to the 'Ok' action stated in `myDefaultOptions` object.
+
 ### Notes 
 * If you calling the `showSnackbar` method for app.component.ts (your root app ts file) make sure to call it after the view is initialized (not from the `constructor` or `ngOnInit`, for example).
 
