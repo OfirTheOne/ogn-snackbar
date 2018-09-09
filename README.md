@@ -204,7 +204,7 @@ There are default options' values defained, thay will be used in a case `showSna
         timeout: 3000; 
       }
 
-You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.
+You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.<br>
 for example : <br>
 
     ...
@@ -226,14 +226,14 @@ for example : <br>
     
 now the default options will marge to 
 
-      {
-        matIcon: undefined;
-        action: 'Ok';
-        appearanceEffect: SnackbarAppearanceEffects.SLIDE;
-        // borderGap: undefined; 
-        position: SanckbarPosition.TOP;
-        timeout: 3000; 
-      }
+    {
+      matIcon: undefined;
+      action: 'Ok';
+      appearanceEffect: SnackbarAppearanceEffects.SLIDE;
+      // borderGap: undefined; 
+      position: SanckbarPosition.TOP;
+      timeout: 3000; 
+    }
       
 That mean that every time you will call `showSnackbar` method with no options, the bar will slide from the top for 3 sec, with 'Ok' action aside. <br>
 But be aware that with those default options in palce, any time you will not state action or an icon in the option object you provide `showSnackbar` method, the bar will default to the 'Ok' action stated in `myDefaultOptions` object.
