@@ -8,7 +8,7 @@
 
 The two main features are :
 1. This is an independent ui service - no prerequisites & no dependencies.
-2. Highly configurable ui component, with simple config options you can controll the position on the  bar, the animation effects, the action / icon that will be presented.
+2. Highly configurable ui component, with simple config options you can control the position of the bar, the animation effects, the action / icon that will be presented.
 
 
 ## Usage
@@ -153,7 +153,7 @@ Whan called a snackbar for appearing while one is beeing shown, it will immediat
   on `SnackbarOptionsArgs` object the icon will be ignored.
  
  
- #### <b>*SnackbarIcon*</b> 
+#### <b>*SnackbarIcon*</b> 
 
 * Object scheme :  
 
@@ -205,7 +205,7 @@ There are default options' values defained, thay will be used in a case `showSna
       }
 
 You can override those options be providing your own options object using `OgnSnackbarModule.forRoot()` in app.module.<br>
-for example : <br>
+For example : <br>
 
     ...
     import { OgnSnackbarModule, SanckbarPosition, SnackbarOptionsArgs } from 'ogn-snackbar';
